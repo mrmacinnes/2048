@@ -57,7 +57,12 @@ HTMLActuator.prototype.addTile = function (tile) {
   // We can't use classlist because it somehow glitches when replacing classes
   var classes = ["tile", "tile-" + tile.value, positionClass];
 
-  if (tile.value > 3072) classes.push("tile-super"); //change 2048 to 3072
+  if (tile.value > 177147) classes.push("tile-super"); //change 2048 to 177147 - top value
+  
+  if (tile.value > 9999) classes.push("tile-5digit"); //number has 5 digits so make text smaller
+  if (tile.value > 99999) classes.push("tile-6digit"); //number has 6 digits so make text smaller
+  if (tile.value > 999999) classes.push("tile-7digit"); //number has 7 digits so make text smaller
+
 
   this.applyClasses(wrapper, classes);
 
